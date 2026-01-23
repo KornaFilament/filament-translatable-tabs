@@ -11,6 +11,7 @@ class Step extends Model
 {
     /** @use HasFactory<\Database\Factories\StepFactory> */
     use HasFactory;
+
     use HasTranslations;
 
     public array $translatable = ['instruction'];

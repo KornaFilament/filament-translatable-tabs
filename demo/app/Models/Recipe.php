@@ -12,10 +12,10 @@ class Recipe extends Model
 {
     /** @use HasFactory<\Database\Factories\RecipeFactory> */
     use HasFactory;
+
     use HasTranslations;
 
     public array $translatable = ['name'];
-
 
     public function user(): BelongsTo
     {

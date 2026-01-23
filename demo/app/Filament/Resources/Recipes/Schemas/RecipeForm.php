@@ -30,9 +30,9 @@ class RecipeForm
                             ->schema([
                                 TextInput::make('instruction')
                                     ->required(),
-                            ])
+                            ]),
                     ])
-                    ->columnSpanFull()
+                    ->columnSpanFull(),
             ]);
     }
 }
