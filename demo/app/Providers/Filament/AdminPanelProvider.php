@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
+use Closure;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -14,6 +16,7 @@ use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
@@ -55,5 +58,23 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+    }
+
+    public function boot()
+    {
+        Model::unguard();
+        TranslatableTabs::configureUsing(function (TranslatableTabs $component) {
+            $component
+                // locales labels
+                ->localesLabels([
+                    'ar' => 'Arabic',
+                    'en' => 'English'
+                ])
+                // default locales
+                ->locales(['en', 'ar'])
+                ->addDirectionByLocale()
+                ->addEmptyBadgeWhenAllFieldsAreEmpty(emptyLabel: 'Empty')
+                ->addSetActiveTabThatHasValue();
+        });
     }
 }
