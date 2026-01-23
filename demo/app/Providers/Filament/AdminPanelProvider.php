@@ -3,7 +3,6 @@
 namespace App\Providers\Filament;
 
 use AbdulmajeedJamaan\FilamentTranslatableTabs\TranslatableTabs;
-use Closure;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -68,7 +67,7 @@ class AdminPanelProvider extends PanelProvider
                 // locales labels
                 ->localesLabels([
                     'ar' => 'Arabic',
-                    'en' => 'English'
+                    'en' => 'English',
                 ])
                 // default locales
                 ->locales(['en', 'ar'])

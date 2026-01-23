@@ -10,10 +10,10 @@ use Spatie\Translatable\HasTranslations;
 class Post extends Model
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
-    use HasFactory, HasTranslations;
+    use HasFactory;
+    use HasTranslations;
 
     public array $translatable = ['title'];
-
 
     public function user(): BelongsTo
     {

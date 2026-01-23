@@ -31,7 +31,7 @@ class UserForm
                             ->required()
                             ->translatableTabs()
                             ->columnSpanFull(),
-                    ])
+                    ]),
             ]);
     }
 }
