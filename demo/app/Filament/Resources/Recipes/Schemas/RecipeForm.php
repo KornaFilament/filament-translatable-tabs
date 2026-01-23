@@ -22,11 +22,13 @@ class RecipeForm
                         TextInput::make('name')
                             ->required(),
                         Repeater::make('ingredients')
+                            ->relationship()
                             ->schema([
                                 TextInput::make('name')
                                     ->required(),
                             ]),
                         Repeater::make('steps')
+                            ->relationship()
                             ->schema([
                                 TextInput::make('instruction')
                                     ->required(),
